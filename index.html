@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thumbnail Studio — make video thumbnails in the browser</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <aside class="panel">
+      <h1>Thumbnail Studio</h1>
+      <p class="intro">Design a 1280×720 thumbnail on a small canvas, then export it as a PNG. Everything stays in your browser.</p>
+
+      <h2>Background</h2>
+      <div class="grid2">
+        <label>Style
+          <select id="bgMode">
+            <option value="gradient">Gradient</option>
+            <option value="solid">Solid colour</option>
+          </select>
+        </label>
+        <label>Direction
+          <select id="bgDir">
+            <option value="diag">Diagonal</option>
+            <option value="side">Left to right</option>
+            <option value="down">Top to bottom</option>
+          </select>
+        </label>
+        <label>Colour 1 <input id="bgColor1" type="color" value="#191970" /></label>
+        <label>Colour 2 <input id="bgColor2" type="color" value="#ff5a26" /></label>
+      </div>
+      <label class="fileBtn">Use a photo as background
+        <input id="bgImageInput" type="file" accept="image/*" />
+      </label>
+      <button id="removeBgImage" class="ghost">Remove background photo</button>
+
+      <h2>Add</h2>
+      <div class="btnRow">
+        <button id="addText">Text</button>
+        <button id="addRect">Rectangle</button>
+        <button id="addCircle">Circle</button>
+        <label class="fileBtn smallBtn">Image
+          <input id="addImageInput" type="file" accept="image/*" />
+        </label>
+      </div>
+
+      <h2>Ready-made looks</h2>
+      <div class="btnRow">
+        <button data-template="music">Music video</button>
+        <button data-template="gaming">Gaming</button>
+        <button data-template="vlog">Vlog</button>
+      </div>
+
+      <div id="selectedPanel" hidden>
+        <h2>Selected item</h2>
+        <div id="textControls">
+          <label>Text <input id="elText" type="text" /></label>
+          <label>Font size <input id="elFontSize" type="range" min="18" max="110" step="1" /></label>
+          <div class="grid2">
+            <label>Text colour <input id="elColor" type="color" /></label>
+            <label>Outline colour <input id="elStrokeColor" type="color" /></label>
+          </div>
+          <label>Outline width <input id="elStroke" type="range" min="0" max="8" step="0.5" /></label>
+          <label class="check"><input id="elBold" type="checkbox" /> Bold</label>
+        </div>
+        <div id="boxControls">
+          <label>Width <input id="elW" type="range" min="30" max="800" step="1" /></label>
+          <label>Height <input id="elH" type="range" min="20" max="450" step="1" /></label>
+          <label id="fillRow">Fill colour <input id="elFill" type="color" /></label>
+        </div>
+        <label>Opacity <input id="elOpacity" type="range" min="0.15" max="1" step="0.05" /></label>
+        <label>Rotation <input id="elRotate" type="range" min="-30" max="30" step="1" /></label>
+        <div class="btnRow">
+          <button id="dupBtn">Duplicate</button>
+          <button id="frontBtn">Bring forward</button>
+          <button id="backBtn">Send back</button>
+          <button id="delBtn" class="danger">Delete</button>
+        </div>
+      </div>
+
+      <h2>Layers</h2>
+      <div id="layers" class="layers"></div>
+
+      <button id="exportBtn" class="export">Download PNG (1280×720)</button>
+      <p id="status" class="status"></p>
+    </aside>
+
+    <section class="stageArea">
+      <div id="stage" class="stage"></div>
+      <p class="hint">Drag items to move them. Click an item to edit it. The stage is a small preview; the download is full 1280×720.</p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
