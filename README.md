@@ -1,5 +1,7 @@
 # Thumbnail Studio
 
+![Thumbnail Studio mascot](mascot.svg)
+
 A small design tool for video thumbnails that runs in the browser. Put down a background, add text and shapes, drag things around, and download a 1280×720 PNG.
 
 **Live demo:** https://motivationp81-star.github.io/thumbnail-studio/
